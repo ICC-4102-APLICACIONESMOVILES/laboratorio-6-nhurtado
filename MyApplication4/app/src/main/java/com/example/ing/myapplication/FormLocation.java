@@ -1,5 +1,6 @@
 package com.example.ing.myapplication;
 
+import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.PrimaryKey;
@@ -21,9 +22,11 @@ public class FormLocation {
     @PrimaryKey(autoGenerate = true)
     private int fromLocationId;
     @NonNull
+    @ColumnInfo(index=true)
     private int formId;
     @NonNull
     private double lon;
+    @NonNull
     private double lat;
 
     public FormLocation() {

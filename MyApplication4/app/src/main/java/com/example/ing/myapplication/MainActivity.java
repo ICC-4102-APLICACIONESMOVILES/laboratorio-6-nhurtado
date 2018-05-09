@@ -74,6 +74,8 @@ public class MainActivity extends AppCompatActivity {
                             fragment = new Fragment2();
                         } else if (id == R.id.nav_third_fragment) {
                             fragment = new Fragment3();
+                        } else if (id == R.id.nav_fourth_fragment) {
+                            fragment = new Fragment4();
                         } else if (id == R.id.logout){
                             Logout();
                             fragment = new Fragment0();
@@ -131,6 +133,7 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 formDatabase.daoAccess().nukeTableQ();
                 formDatabase.daoAccess().nukeTableF();
+                formDatabase.daoAccess().nukeTableL();
             }
         }) .start();
         Intent intent = new Intent(this, Login.class);

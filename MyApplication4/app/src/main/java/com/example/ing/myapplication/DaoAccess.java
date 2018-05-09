@@ -3,6 +3,7 @@ package com.example.ing.myapplication;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
+import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
 
@@ -17,7 +18,7 @@ public interface DaoAccess {
 
     @Insert
     long insertOnlySingleForm (Forms forms);
-    @Insert
+    @Insert (onConflict = OnConflictStrategy.REPLACE)
     void insertOnlySingleFormLocation (FormLocation formLocation);
     @Insert
     void insertOnlySingleQuestion (Questions Questions);
@@ -27,6 +28,8 @@ public interface DaoAccess {
     void insertMultipleQuestions (List<Questions> QuestionList);
     @Query("SELECT * FROM Forms WHERE formId = :formId")
     Forms fetchOneFormsbyFormId (int formId);
+    @Query("SELECT * FROM FormLocation WHERE formId = :formId")
+    FormLocation fetchAnswerbyFormId (int formId);
     @Query("SELECT * FROM Forms")
     List<Forms> fetchAllForms();
     @Query("SELECT * FROM Questions WHERE formId = :formId")
@@ -35,6 +38,8 @@ public interface DaoAccess {
     void nukeTableF();
     @Query("DELETE FROM Questions")
     void nukeTableQ();
+    @Query("DELETE FROM FormLocation")
+    void nukeTableL();
     @Update
     void updateMovie (Forms forms);
     @Delete

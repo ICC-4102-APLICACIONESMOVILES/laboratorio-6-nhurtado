@@ -28,7 +28,7 @@ import java.util.List;
  * Use the {@link Fragment2#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Fragment2 extends Fragment {
+public class Fragment4 extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -46,7 +46,7 @@ public class Fragment2 extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public Fragment2() {
+    public Fragment4() {
         // Required empty public constructor
     }
 
@@ -59,8 +59,8 @@ public class Fragment2 extends Fragment {
      * @return A new instance of fragment Fragment2.
      */
     // TODO: Rename and change types and number of parameters
-    public static Fragment2 newInstance(String param1, String param2) {
-        Fragment2 fragment = new Fragment2();
+    public static Fragment4 newInstance(String param1, String param2) {
+        Fragment4 fragment = new Fragment4();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -114,7 +114,7 @@ public class Fragment2 extends Fragment {
                         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                             @Override
                             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                                Intent intent = new Intent(getActivity(),QuestionTemplate.class);
+                                Intent intent = new Intent(getActivity(),answer_template.class);
                                 intent.putExtra("Form_ID", String.valueOf(forms.get(forms.size()-i-1).getFormId()));
                                 startActivity(intent);
                             }
